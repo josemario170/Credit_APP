@@ -20,8 +20,6 @@ const ButtonTransparent = ({
   onPress,
   disabled,
   icon,
-  className = "",
-  textClassName = "",
   style,
 }: ButtonTransparentProps) => {
   const hasIcon = !!icon;
@@ -38,7 +36,7 @@ const ButtonTransparent = ({
           <Ionicons
             name={icon as keyof typeof Ionicons.glyphMap}
             size={20}
-            color="#737373"
+            color="white"
             style={ButtonTransparentStyles.icon}
           />
         ) : (

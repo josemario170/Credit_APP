@@ -1,5 +1,5 @@
 import { DownloadSVG, PaymentSVG, ReceiveCreditSVG } from '@/assets/images/SVGS/export';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/ui/themed-text';
 import { colors, windowHeight } from '@/utils/Constants/Styles';
 import React from 'react';
 import {

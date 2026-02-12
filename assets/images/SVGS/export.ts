@@ -1,3 +1,4 @@
+import ArrowSet from '../SVGS/Arrow.svg'
 import ContractsSVG from '../SVGS/contrat.svg'
 import CreditSVG from '../SVGS/Credit.svg'
 import ContractSVG from '../SVGS/docsPdf.svg'
@@ -13,5 +14,5 @@ import TransferSVG from '../SVGS/transfer.svg'
 import UserAvatar from '../SVGS/userAvatar.svg'
 import WalletSVG from '../SVGS/wallet.svg'
 
-export { ContractsSVG, ContractSVG, CreditSVG, DownloadSVG, EyeToCloseSVG, EyeToOpenSVG, HomeSVG, NotificationSvg, OptionsSVG, PaymentSVG, ReceiveCreditSVG, TransferSVG, UserAvatar, WalletSVG }
+export { ArrowSet, ContractsSVG, ContractSVG, CreditSVG, DownloadSVG, EyeToCloseSVG, EyeToOpenSVG, HomeSVG, NotificationSvg, OptionsSVG, PaymentSVG, ReceiveCreditSVG, TransferSVG, UserAvatar, WalletSVG }
 

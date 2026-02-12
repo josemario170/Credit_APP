@@ -2,11 +2,7 @@ import { colors } from "@/utils/Constants/Styles";
 import React from "react";
 import { Image, Text, TouchableOpacity } from "react-native";
 
-const cn = (...classes: Array<string | false | null | undefined>) =>
-  classes.filter(Boolean).join(" ");
-
-// Tipagem de props (opcional, mas recomendado)
-type Variant = 'primary' | 'outline' | 'danger' | 'white' ;
+type Variant = 'primary' | 'outline' | 'danger' | 'white' | 'default';
 type Size = 'sm' | 'md' | 'lg';
 
 type ButtonProps = {
@@ -32,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     outline: `border border-${colors.primary} text-${colors.primary}`,
     danger: 'bg-red-500',
     white: 'bg-white',
+    default: colors.primary,
   };
 
   const sizes: Record<Size, string> = {
@@ -46,12 +43,12 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       onPress={disabled ? undefined : onPress}
       style={{
-        backgroundColor: backgroundColor ? backgroundColor : variant === 'primary' ? colors.primary : variant === "danger" ? '#FF0000' : variant === "white" ? '#FFFFFF' : 'transparent' ,
+        backgroundColor: backgroundColor ? backgroundColor : variant === 'primary' ? colors.primary : variant === "danger" ? '#FF0000' : variant === "white" ? '#FFFFFF' : variant === "default" ? colors.primary : 'transparent' ,
         padding: 14,
         borderRadius: 10,
         borderWidth: 1,
         borderColor: variant === 'primary' ? 'transparent' : variant === "danger" ? '#FF0000' : variant === "white" ? '#FFFFFF' : 'black',
-        width: '50%',
+        width: variant === 'primary' ? '50%' : '100%',
         height: 58,
         alignSelf: 'center',
         opacity: disabled ? 0.6 : 1,
@@ -61,15 +58,19 @@ const Button: React.FC<ButtonProps> = ({
         overflow: "hidden",
       }}
     >
-      <Image source={require("@/assets/images/bg-button.png")}
+     {
+      variant === 'primary' && (
+         <Image source={require("@/assets/images/bg-button.png")}
         style={{position: "absolute", top: 0, left: -20, right: 0, bottom: 0,
           width: 100,
           height: 100,
         }}
       />
+      )
+     }
       <Text 
         style={{
-          color: variant === 'primary' ? 'white' : variant === "danger" ? 'white' : variant === "white" ? 'auto' : colors.primary,
+          color: variant === 'primary' ? 'white' : variant === "danger" ? 'white' : variant === "white" ? 'auto' : variant === "default" ? colors.white : 'black',
           fontFamily: 'Manrope-Regular',
           textAlign: 'center',
         }}

@@ -1,7 +1,8 @@
 import { CreditSVG, TransferSVG } from '@/assets/images/SVGS/export';
 import Button from '@/components/domain/Home/Home/CustomButton';
-import { ThemedText } from '@/components/themed-text';
+import { ThemedText } from '@/components/ui/themed-text';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import React from 'react';
 import {
   StyleSheet,
@@ -52,7 +53,7 @@ const ActionButtonsRow = ({ onSendPress, onReceivePress }: actionsProps) => {
       <View
         style={styles.scrollContent}
       >
-        <Button variant="primary" onPress={()=>{}}>
+        <Button variant="primary" onPress={()=> router.push('/HomeScreens/RequestCredit')}>
           <View style={{flexDirection: 'row', alignItems: 'center', gap: 2}}>
             <Ionicons name="add" size={20} color="white" />
             <ThemedText type="default" lightColor="white">

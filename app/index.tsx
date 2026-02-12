@@ -5,10 +5,11 @@ import { ContractSVG, EyeToCloseSVG, EyeToOpenSVG, NotificationSvg, UserAvatar }
 import BottomNavbar from "@/components/Custom/NavBar";
 import ActionButtonsRow from "@/components/domain/Home/Home/ActionsButton";
 import MovimentosScreen from "@/components/domain/Home/Home/TransictionsList";
-import { SafeScreen } from "@/components/safe-screen";
-import { ThemedText } from "@/components/themed-text";
+import { SafeScreen } from "@/components/ui/safe-screen";
+import { ThemedText } from "@/components/ui/themed-text";
 import { colors } from "@/utils/Constants/Styles";
 import { HomeStyles } from "@/utils/Constants/styles/screens/Home/homeStyles";
+import { router } from "expo-router";
 import { useState } from "react";
 
 export default function HomeScreen() {
@@ -39,9 +40,9 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <View style={[HomeStyles.avatar, { backgroundColor: "white" }]}>
+          <TouchableOpacity onPress={() => router.push("/HomeScreens/notifications")} style={[HomeStyles.avatar, { backgroundColor: "white" }]}>
             <NotificationSvg color="black" />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
