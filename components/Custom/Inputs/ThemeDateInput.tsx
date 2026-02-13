@@ -1,3 +1,4 @@
+import { ThemedText } from '@/components/ui/themed-text'
 import { colors } from '@/utils/Constants/Styles'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import React, { useState } from 'react'
@@ -9,7 +10,6 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import { ThemedText } from '../../ui/themed-text'
 
 type Variant = 'default' | 'success' | 'error' | 'outline'
 
@@ -18,10 +18,9 @@ interface Props {
   label?: string
   variant?: Variant
   defaultValue?: Date
-  error?: string
 }
 
-export const ThemeDateInput = ({ name, label, variant = 'default', defaultValue, error }: Props) => {
+export const ThemeDateInput = ({ name, label, variant = 'default', defaultValue }: Props) => {
   const defaultDate = defaultValue || new Date(2000, 1, 1)
   const [show, setShow] = useState(false)
   const [focused, setFocused] = useState(false)
@@ -80,8 +79,8 @@ export const ThemeDateInput = ({ name, label, variant = 'default', defaultValue,
             />
           )}
 
-          {(getByPath(errors, name) || error) && (
-            <ThemedText style={styles.error}>{getByPath(errors, name)?.message as any || error}</ThemedText>
+          {getByPath(errors, name) && (
+            <Text style={styles.error}>{getByPath(errors, name)?.message as any}</Text>
           )}
         </View>
       )}

@@ -1,3 +1,4 @@
+import { ThemedText } from '@/components/ui/themed-text'
 import { colors } from '@/utils/Constants/Styles'
 import React, { useState } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
@@ -9,7 +10,6 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import { ThemedText } from '../../ui/themed-text'
 
 type Variant = 'default' | 'success' | 'error' | 'outline'
 
@@ -23,10 +23,9 @@ interface Props {
   label?: string
   options: Option[]
   variant?: Variant
-  error?: string
 }
 
-export const ThemeSelect = ({ name, label, options, variant = 'default', error }: Props) => {
+export const ThemeSelect = ({ name, label, options, variant = 'default' }: Props) => {
   const [visible, setVisible] = useState(false)
   const [focused, setFocused] = useState(false)
   const { control, formState: { errors } } = useFormContext()
@@ -109,8 +108,8 @@ export const ThemeSelect = ({ name, label, options, variant = 'default', error }
               </View>
             </Modal>
 
-            {(getByPath(errors, name) || error) && (
-              <Text style={styles.error}>{getByPath(errors, name)?.message as any || error}</Text>
+            {getByPath(errors, name) && (
+              <Text style={styles.error}>{getByPath(errors, name)?.message as any}</Text>
             )}
           </View>
         )

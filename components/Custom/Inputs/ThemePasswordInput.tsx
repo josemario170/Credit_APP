@@ -36,7 +36,6 @@ export const ThemePasswordInput = ({ name, label, variant = 'default', ...props 
     <Controller
       control={control}
       name={name}
-      defaultValue=""
       render={({ field: { value, onChange, onBlur } }) => (
         <View style={styles.wrapper}>
           {label && <Text style={styles.label}>{label}</Text>}

@@ -14,7 +14,7 @@ import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Touch
 
 const ClientForm = () => {
     const formMethods = useFormContext() as any
-    const { setValue, watch, trigger, getValues, formState: { errors } } = formMethods
+    const { setValue, watch, trigger, getValues } = formMethods
 
     const dataNascimento = watch('cliente.dataNascimento')
 
@@ -47,7 +47,7 @@ const ClientForm = () => {
         ] as any)
 
         if (!ok) return
-        console.log(formMethods.getValues(), errors)
+        console.log(getValues())
         await markStepAsCompleted(documentSteps[0].id)
         goToStep(documentSteps[1])
     }
@@ -87,20 +87,17 @@ const ClientForm = () => {
                                     label="Nome do Solicitante"
                                     placeholder="digite o nome"
                                     name='cliente.nome'
-                                    error={errors.cliente?.nome?.message}
                                     autoCapitalize="words"
                                 />
                                 <ThemeTextInput
                                     label="Nº do Bilhete"
                                     placeholder="00000000AB0000"
                                     name='cliente.bi'
-                                    error={errors.cliente?.bi?.message}
                                     autoCapitalize="characters"
                                 />
                                 <ThemeDateInput
                                     label="Data de Nascimento"
                                     name='cliente.dataNascimento'
-                                    error={errors.cliente?.dataNascimento?.message}
                                 />
                                 <ThemeSelect
                                     label="Género"

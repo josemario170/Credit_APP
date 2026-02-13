@@ -32,9 +32,10 @@ export const ThemeTextInput = forwardRef<TextInput, Props>(
       path.split('.').reduce((acc, key) => (acc ? acc[key] : undefined), obj)
 
     const errorMessage = getByPath(errors, name)?.message as any
+    const finalError = error ?? errorMessage
 
     const getBorderColor = () => {
-      if (variant === 'error' || errorMessage) return '#E53935'
+      if (variant === 'error' || finalError) return '#E53935'
       if (variant === 'success') return colors.primary
       if (focused) return colors.primary
       if (variant === 'outline') return '#CFCFCF'
@@ -74,7 +75,7 @@ export const ThemeTextInput = forwardRef<TextInput, Props>(
               />
             </View>
 
-            {error && <Text style={styles.error}>{error}</Text>}
+            {finalError && <Text style={styles.error}>{finalError}</Text>}
           </View>
         )}
       />

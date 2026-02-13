@@ -15,7 +15,7 @@ import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Touch
 
 const SocialForm = () => {
     const formMethods = useFormContext() as any
-    const { trigger, errors } = formMethods
+    const { trigger, formState: { errors } } = formMethods
 
     const {
         goToStep,
@@ -132,11 +132,16 @@ const SocialForm = () => {
                                     error={errors.dadosSociais?.numeroFontesRenda?.message}
                                 />
 
-                                <ThemeTextInput
+                                <ThemeSelect
                                     label="Nível académico"
-                                    placeholder="Ex: Médio"
                                     name='dadosSociais.nivelAcademico'
-                                    autoCapitalize="words"
+                                    options={[
+                                        { label: 'Ensino Secundário', value: 'ensino_basico' },
+                                        { label: 'Ensino médio', value: 'ensino_medio' },
+                                        { label: 'Ensino superior', value: 'ensino_superior' },
+                                        { label: 'Mestrado', value: 'mestrado' },
+                                        { label: 'Doutorado', value: 'doutorado' }
+                                    ]}
                                 />
 
                                 <ThemeTextInput

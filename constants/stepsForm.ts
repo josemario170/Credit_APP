@@ -30,7 +30,7 @@ export const documentSteps: DocumentStep[] = [
         stepNumber: 4,
         image: require('../assets/images/work_options.png'),
         title: 'Dados do negócio',
-        route: '/HomeScreens/(Credit)/ClientForm' as const,
+        route: '/HomeScreens/(Credit)/BusinessForm' as const,
         description: 'Preencha os dados do negócio'
     }
 ]
