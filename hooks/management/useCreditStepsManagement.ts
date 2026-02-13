@@ -1,5 +1,4 @@
 import { DocumentStep, StepStatus } from '@/utils/Types/Global'
-import { router } from 'expo-router'
 import { useEffect, useMemo, useState } from 'react'
 import { FieldValues, UseFormReturn } from 'react-hook-form'
 import { Alert } from 'react-native'
@@ -81,9 +80,6 @@ export const useCreditStepsManagement = <T extends FieldValues>({
     persistedCurrentStep = step.stepNumber
     setCurrentStep(step.stepNumber)
     emitPersisted()
-    const route = typeof step.route === 'string' ? step.route : ''
-    const normalizedRoute = route.startsWith('/') ? route : `/${route}`
-    router.push(normalizedRoute as any)
   }
 
   const markStepAsCompleted = async (id: string) => {
